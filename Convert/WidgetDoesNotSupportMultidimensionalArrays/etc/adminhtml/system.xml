@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="google" showInDefault="1" showInWebsite="0" showInStore="1" sortOrder="10" translate="label">
+            <group id="gaee" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google Analytics - Enhanced eCommerce</label>
+                <comment><![CDATA[Convert Digital's module implementation on UA Analytics V4 implementing the recommended method via Google Tag Manager. <a href="https://developers.google.com/tag-manager/ecommerce-ga4/" title="Visit Google Analytics Ehanced eCommerce V4 docs" target="_blank">More information on V4 here.</a>]]></comment>
+                <field id="container_id" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Google Tag Manager Container ID</label>
+                    <comment><![CDATA[Your Google Tag Manger container ID will look like GTM-XXXX and is accessible from the <a href="https://tagmanager.google.com/" title="Visit Google Tag Manager Console" target="_blank">Google Tag Manager Console.</a>.]]></comment>
+                    <validate>no-whitespace</validate>
+                    <depends>
+                        <field id="google/analytics/container_id">0</field>
+                    </depends>
+                </field>
+                <field id="data_batch_limit" translate="label comment tooltip" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Data Batch Limit Per Page</label>
+                    <comment><![CDATA[The maximum batch number of events sent to the Google Tag Manger per page load.]]></comment>
+                    <tooltip>Default value = 100, specify 0 if you do not wish there to be a limit.</tooltip>
+                    <validate>integer</validate>
+                </field>
+                <field id="events_enabled" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enabled Enhanced eCommerce Events:</label>
+                    <source_model>Convert\WidgetDoesNotSupportMultidimensionalArrays\Model\Config\Source\EventsOptions</source_model>
+                </field>
+                <field id="category_delimiter_enabled" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enable Category Paths In Events</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enabling this will create a parent child structure for catogories in events.]]></comment>
+                </field>
+                <field id="category_path_delimiter" translate="label comment tooltip" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Category Path Delimiter</label>
+                    <comment><![CDATA[Which character should separate category parents from children?]]></comment>
+                    <tooltip>Example: Mens > Shirts;;Womens > Shirts - Where the > acts as the delimiter between parent and child</tooltip>
+                    <depends>
+                        <field id="google/gaee/category_delimiter_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="category_separator_delimiter" translate="label comment tooltip" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Category Separator Delimiter</label>
+                    <comment><![CDATA[Which character should separate category tree paths?]]></comment>
+                    <tooltip>Example: Mens > Shirts;;Womens > Shirts - Where the ;; acts as the separator between categories</tooltip>
+                    <depends>
+                        <field id="google/gaee/category_delimiter_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Google Tag Manager Section Customer Data -->
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="gaee" xsi:type="string">Convert\WidgetDoesNotSupportMultidimensionalArrays\CustomerData\EventsSection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

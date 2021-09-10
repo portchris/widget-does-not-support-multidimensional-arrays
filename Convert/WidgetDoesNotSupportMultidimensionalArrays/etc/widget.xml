@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Convert\WidgetDoesNotSupportMultidimensionalArrays\Block\Widget\Eventer" id="convert_google_analytics_enhanced_ecommerce_eventer" is_email_compatible="false">
+        <label>Widgets Do Not Support Multidimensional Arrays</label>
+        <description translate="true"><![CDATA[<a href="https://github.com/magento/magento2/issues/33926" title="Visit this GutHub issue for more information">Visit this GutHub issue for more information.</a>]]></description>
+        <parameters>
+            <parameter name="event" xsi:type="select" source_model="Convert\WidgetDoesNotSupportMultidimensionalArrays\Model\Config\Source\EventsOptions" visible="true" required="true" sort_order="10">
+                <label translate="true">Event To Fire</label>
+            </parameter>
+            <parameter name="element" xsi:type="text" required="true" visible="true" sort_order="20">
+                <label translate="true">Element Selector</label>
+            </parameter>
+            <parameter name="observer" xsi:type="select" source_model="Convert\WidgetDoesNotSupportMultidimensionalArrays\Model\Config\Source\EventObservers" visible="true" required="true" sort_order="30">
+                <label translate="true">JavaScript Event To Observe</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true" sort_order="40">
+                <label translate="true">Widget Template</label>
+                <options>
+                    <option name="default" value="Convert_WidgetDoesNotSupportMultidimensionalArrays::widget/eventer.phtml" selected="true">
+                        <label translate="true">Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="parameters" xsi:type="block" visible="true" required="true" sort_order="50">
+                <label translate="true">Parameters To Send</label>
+                <block class="Convert\WidgetDoesNotSupportMultidimensionalArrays\Block\Adminhtml\Widget\Field\EventParameters" />
+            </parameter>
+        </parameters>
+        <containers>
+            <container name="gaee.widget.eventer">
+                <template name="grid" value="default" />
+                <template name="list" value="default" />
+            </container>
+            <container name="before.body.end">
+                <template name="grid" value="default" />
+                <template name="list" value="default" />
+            </container>
+        </containers>
+    </widget>
+</widgets>

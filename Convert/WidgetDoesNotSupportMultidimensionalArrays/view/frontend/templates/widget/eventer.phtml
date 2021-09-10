@@ -1,0 +1,38 @@
+<?php
+
+use Convert\WidgetDoesNotSupportMultidimensionalArrays\Block\Widget\Eventer;
+
+/**
+ * @var Eventer $block
+ */
+$gaeeEnabled = $block->isEnabled();
+?>
+
+<?php if ($gaeeEnabled) : ?>
+    <div class="gaeeEventer" data-bind="scope:'gaeeEventer'">
+        <script type="text/javascript">
+            window.gaee = window.gaee || {};
+            window.gaee.eventer = window.gaee.eventer || [];
+            window.gaee.eventer.push({
+                'event': '<?= /* @noEscape */ $block->gtmEvent() ?>',
+                'observer': '<?= /* @noEscape */ $block->gtmObserver() ?>',
+                'parameters': <?= /* @noEscape */ $block->gtmParameters() ?>,
+                'element': '<?= /* @noEscape */ $block->gtmElementSelector() ?>',
+                'layoutHandles': '<?= /* @noEscape */ $block->layoutHandles() ?>'
+            });
+        </script>
+        <script type="text/x-magento-init">
+            {
+                "<?= $block->gtmElementSelector() ?>": {
+                    "Magento_Ui/js/core/app": {
+                        "components": {
+                            "gaeeEventer": {
+                                "component": "gaeeEventer"
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </div>
+<?php endif; ?>

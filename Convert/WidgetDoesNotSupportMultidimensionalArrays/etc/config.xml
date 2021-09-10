@@ -1,0 +1,13 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <google>
+            <gaee>
+                <data_batch_limit>100</data_batch_limit>
+                <events_enabled>page_view,view_item_list,view_item,add_to_cart,remove_from_cart,begin_checkout,checkout_progress,set_checkout_option,add_shipping_info,add_payment_info,view_promotion,select_promotion,select_content,refund,view_refund,purchase,login,sign_up,currency,logout,join_group,remove_from_group</events_enabled>
+                <category_delimiter_enabled>0</category_delimiter_enabled>
+                <category_path_delimiter>></category_path_delimiter>
+                <category_separator_delimiter>;</category_separator_delimiter>
+            </gaee>
+        </google>
+    </default>
+</config>
